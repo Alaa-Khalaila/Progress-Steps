@@ -1,0 +1,87 @@
+:root{
+  --fill-color:#6262ff;
+  --empty-color:silver;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circles-container {
+  display: flex;
+  justify-content: space-between;
+  width: 350px;
+  position: relative;
+}
+
+.circles-container::before {
+  content: "";
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background-color: var(--empty-color);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: -1;
+}
+
+.line {
+  position: absolute;
+  height: 3px;
+  width: 0;
+  background-color: var(--fill-color);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: -1;
+  transition: width .3s ease;
+}
+
+.circle {
+  border: 3px solid;
+  border-color: var(--empty-color);
+  border-radius: 50%;
+  padding: 5px 10px;
+  background-color: #fff;
+}
+
+.circle.active {
+  border-color: var(--fill-color);
+  transition: all 0.3s ease;
+}
+.btns {
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  padding: 10px 25px;
+  margin: 20px 10px;
+  border: 0;
+  border-radius: 6px;
+  background-color: var(--fill-color);
+  color: #fff;
+  cursor: pointer;
+}
+
+.btn:hover{
+    background-color: #4f4ff9;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn:disabled {
+  background-color: var(--empty-color);
+  cursor: not-allowed;
+}
